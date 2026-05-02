@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
 "use strict";
 
 var I18N={
@@ -1392,13 +1392,7 @@ resultsEl.addEventListener("click",function(e){
   var btn=e.target.closest(".copy-btn");
   if(!btn)return;
   var text=btn.getAttribute("data-text").replace(/&#10;/g,"\n").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"');
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(text).then(function(){
-      btn.textContent=t("copied");
-      btn.classList.add("copied");
-      setTimeout(function(){btn.textContent=t("copyBtn");btn.classList.remove("copied")},1500);
-    });
-  }
+  copyText(text,btn,"copied","copyBtn");
 });
 
 $("#themeToggle").addEventListener("click",function(){
@@ -1416,16 +1410,29 @@ langSelect.addEventListener("change",function(){
   validationEl.textContent="";
 });
 
-$("#copyWallet").addEventListener("click",function(){
-  var addr="UQCWCZlue77-gwED9UzUSCWgysoVgRilIaFgKUMofo0wCYE6";
-  var btn=this;
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(addr).then(function(){
-      btn.textContent=t("donateCopied");
-      btn.classList.add("copied");
-      setTimeout(function(){btn.textContent=t("donateCopy");btn.classList.remove("copied")},1500);
-    });
+function copyText(text,btn,okKey,backKey){
+  function done(){
+    btn.textContent=t(okKey);
+    btn.classList.add("copied");
+    setTimeout(function(){btn.textContent=t(backKey);btn.classList.remove("copied")},1500);
   }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){
+      var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.left="-9999px";
+      document.body.appendChild(ta);ta.select();
+      try{document.execCommand("copy");done()}catch(e){}
+      document.body.removeChild(ta);
+    });
+  }else{
+    var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.left="-9999px";
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");done()}catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+
+$("#copyWallet").addEventListener("click",function(){
+  copyText("UQCWCZlue77-gwED9UzUSCWgysoVgRilIaFgKUMofo0wCYE6",this,"donateCopied","donateCopy");
 });
 
 applyLang();
