@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://f-nikitin.github.io/refine/sitemap.xml

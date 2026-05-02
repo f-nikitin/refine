@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Refine — Rewrite Your Text Instantly</title>
+<meta name="description" content="Rewrite your message into the right tone — polite, professional, short, or firm. Free, no signup, works offline.">
+<meta name="keywords" content="tone rewriter, message polisher, text rewriter, polite rewrite, professional rewrite, communication tool">
+<meta property="og:title" content="Refine — Rewrite Your Text Instantly">
+<meta property="og:description" content="Turn harsh messages into polite, professional, short, or firm versions — instantly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://f-nikitin.github.io/refine/">
+<link rel="canonical" href="https://f-nikitin.github.io/refine/">
+<link rel="stylesheet" href="style.css">
+</head>

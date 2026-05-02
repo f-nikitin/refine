@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Refine — Rewrite Your Text Instantly</title>
+<meta name="description" content="Rewrite your message into the right tone — polite, professional, short, or firm. Free, no signup, works offline.">
+<meta name="keywords" content="tone rewriter, message polisher, text rewriter, polite rewrite, professional rewrite, communication tool">
+<meta property="og:title" content="Refine — Rewrite Your Text Instantly">
+<meta property="og:description" content="Turn harsh messages into polite, professional, short, or firm versions — instantly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://f-nikitin.github.io/refine/">
+<link rel="canonical" href="https://f-nikitin.github.io/refine/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="container">
+    <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span class="icon-sun">☀</span><span class="icon-moon">☾</span>
+    </button>
+    <div class="header-controls">
+      <select id="langSelect" class="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+    <h1 id="heroTitle">Reply Polisher</h1>
+    <p class="hero-sub" id="heroSub">Rewrite your message into the right tone — instantly.</p>
+    <p class="hero-note" id="heroNote">No signup. Just paste and improve.</p>
+  </div>
+</header>
+
+<section class="benefits" aria-label="Benefits">
+  <div class="container benefits-grid">
+    <div class="benefit-card"><span class="benefit-icon">⏱</span><div class="benefit-text"><h3 data-i18n="benefit1Title">Save time</h3><p data-i18n="benefit1Desc">Stop rewriting manually.</p></div></div>
+    <div class="benefit-card"><span class="benefit-icon">✨</span><div class="benefit-text"><h3 data-i18n="benefit2Title">Sound better</h3><p data-i18n="benefit2Desc">Find the right words fast.</p></div></div>
+    <div class="benefit-card"><span class="benefit-icon">🤝</span><div class="benefit-text"><h3 data-i18n="benefit3Title">Reduce friction</h3><p data-i18n="benefit3Desc">Communicate without conflict.</p></div></div>
+  </div>
+</section>
+
+<main class="container">
+  <section class="editor" aria-label="Text editor">
+    <label for="inputText" class="sr-only" data-i18n="inputLabel">Enter your text</label>
+    <textarea id="inputText" rows="6" placeholder="Paste your message here…"></textarea>
+    <div class="editor-actions">
+      <button id="sampleBtn" class="btn btn-ghost" type="button" data-i18n="sampleBtn">Try sample</button>
+      <button id="clearBtn" class="btn btn-ghost" type="button" data-i18n="clearBtn">Clear</button>
+    </div>
+    <p id="validationMsg" class="validation-msg" role="alert" aria-live="polite"></p>
+
+    <div class="tone-buttons" role="group" aria-label="Choose a tone">
+      <button class="btn btn-tone" data-tone="polite" type="button" data-i18n="tonePolite">Polite</button>
+      <button class="btn btn-tone" data-tone="professional" type="button" data-i18n="toneProfessional">Professional</button>
+      <button class="btn btn-tone" data-tone="short" type="button" data-i18n="toneShort">Short</button>
+      <button class="btn btn-tone" data-tone="firm" type="button" data-i18n="toneFirm">Firm</button>
+    </div>
+
+    <div id="resultsEmpty" class="results-empty">
+      <span class="empty-icon">✍️</span>
+      <span data-i18n="resultsEmpty">Your polished versions will appear here</span>
+    </div>
+  </section>
+
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="spinner"></div><p id="loaderText">Polishing…</p>
+  </div>
+
+  <section id="results" class="results" aria-label="Results" hidden></section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <p data-i18n="footerText">Built by an indie creator</p>
+      <div class="footer-links">
+        <a href="#" class="btn btn-small" target="_blank" rel="noopener">itch.io</a>
+      </div>
+    </div>
+    <div class="donate">
+      <p class="donate-label" data-i18n="donateLabel">Support the project</p>
+      <div class="donate-buttons">
+        <a href="https://t.me/wallet?start=transfer_UQCWCZlue77-gwED9UzUSCWgysoVgRilIaFgKUMofo0wCYE6" class="btn btn-donate btn-tg" target="_blank" rel="noopener">✈️ <span data-i18n="donateTg">Telegram Wallet</span></a>
+        <a href="https://app.tonkeeper.com/transfer/UQCWCZlue77-gwED9UzUSCWgysoVgRilIaFgKUMofo0wCYE6" class="btn btn-donate btn-tonkeeper" target="_blank" rel="noopener">💎 <span data-i18n="donateBtn">Tonkeeper</span></a>
+      </div>
+      <button class="btn btn-wallet" type="button" id="copyWallet" data-i18n="donateCopy">Copy wallet</button>
+      <span class="wallet-addr" id="walletAddr">UQCWCZlue77-gwED9UzUSCWgysoVgRilIaFgKUMofo0wCYE6</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
